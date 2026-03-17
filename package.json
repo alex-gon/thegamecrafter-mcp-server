@@ -1,10 +1,13 @@
 {
-  "name": "tgc-mcp-server",
+  "name": "@alex-gon/tgc-mcp-server",
   "version": "0.1.0",
   "description": "MCP server connecting Claude to The Game Crafter API for designing, managing, and pricing tabletop games",
   "main": "dist/index.js",
   "bin": {
-    "tgc-mcp": "./dist/index.js"
+    "tgc-mcp-server": "./dist/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "dist",

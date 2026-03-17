@@ -16,23 +16,14 @@ Indie board game designers, tabletop creators, and TGC users who want to manage 
 
 ## Installation
 
-1. Clone and build the server:
-
-```bash
-git clone https://github.com/alex-gon/thegamecrafter-mcp-server.git tgc-mcp-server
-cd tgc-mcp-server
-npm install
-npm run build
-```
-
-2. Add the server to your Claude Desktop configuration (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
+Add the server to your Claude Desktop configuration (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
 
 ```json
 {
   "mcpServers": {
     "thegamecrafter": {
-      "command": "node",
-      "args": ["/absolute/path/to/tgc-mcp-server/dist/index.js"],
+      "command": "npx",
+      "args": ["-y", "@alex-gon/tgc-mcp-server"],
       "env": {
         "TGC_API_KEY_ID": "your-api-key-id",
         "TGC_USERNAME": "your-tgc-username",
@@ -43,7 +34,19 @@ npm run build
 }
 ```
 
-3. Restart Claude Desktop. The server will appear in your MCP connections.
+Restart Claude Desktop. The server will be downloaded automatically and appear in your MCP connections.
+
+<details>
+<summary>Alternative: install from source</summary>
+
+```bash
+git clone https://github.com/alex-gon/thegamecrafter-mcp-server.git
+cd thegamecrafter-mcp-server
+npm install && npm run build
+```
+
+Then use `"command": "node"` and `"args": ["/absolute/path/to/dist/index.js"]` in the config above.
+</details>
 
 ## Configuration
 
