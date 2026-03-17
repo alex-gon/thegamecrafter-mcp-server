@@ -10,4 +10,5 @@ dist/
 *.swp
 *.swo
 .mcp.json
+.mcpregistry_*
 test-card.png
