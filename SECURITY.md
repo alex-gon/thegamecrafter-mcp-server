@@ -23,7 +23,7 @@ You should receive a response within 72 hours. If the issue is confirmed, a fix 
 
 ## Security Model
 
-This MCP server acts as a bridge between an AI agent (Claude) and The Game Crafter API. Understanding its trust boundaries is important:
+This MCP server acts as a bridge between an AI assistant and The Game Crafter API. Understanding its trust boundaries is important:
 
 ### Credentials
 

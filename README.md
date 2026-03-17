@@ -11,7 +11,7 @@ Browse the component catalog, create game projects, add card decks and boards, u
 
 ## Who it's for
 
-Indie board game designers, tabletop creators, and TGC users who want to manage their projects through Claude instead of navigating the TGC web interface manually.
+Indie board game designers, tabletop creators, and TGC users who want to manage their projects through an AI assistant instead of navigating the TGC web interface manually.
 
 ## Prerequisites
 
@@ -103,7 +103,7 @@ See `.env.example` for a template.
 
 ## Example prompts
 
-Try saying these to Claude:
+Try saying these to your AI assistant:
 
 - "Show me all my games on The Game Crafter with their component lists"
 - "Create a new card game called Stellar Drift with a standard poker deck and tuck box"
