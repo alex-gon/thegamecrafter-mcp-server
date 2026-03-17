@@ -1,8 +1,13 @@
 # The Game Crafter MCP Server
 
+[![npm](https://img.shields.io/npm/v/@alex-gon/tgc-mcp-server)](https://www.npmjs.com/package/@alex-gon/tgc-mcp-server)
+[![MCP Registry](https://img.shields.io/badge/MCP_Registry-active-green)](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.alex-gon/thegamecrafter)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI](https://github.com/alex-gon/thegamecrafter-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/alex-gon/thegamecrafter-mcp-server/actions)
+
 An MCP server that connects AI assistants to [The Game Crafter](https://www.thegamecrafter.com/) API, letting you design, manage, and price tabletop games through natural conversation.
 
-Browse the component catalog, create game projects, add card decks and boards, upload artwork, and get instant pricing estimates — all without leaving Claude.
+Browse the component catalog, create game projects, add card decks and boards, upload artwork, and get instant pricing estimates — all through your AI assistant.
 
 ## Who it's for
 
