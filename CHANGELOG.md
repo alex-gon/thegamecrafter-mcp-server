@@ -11,6 +11,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/):
 | New tools added | Minor | 0.1.0 → 0.2.0 |
 | Tools renamed or removed | Major | 0.1.0 → 1.0.0 |
 
+## [0.1.1] - 2026-03-17
+
+### Added
+- Published to Official MCP Registry (registry.modelcontextprotocol.io)
+- SECURITY.md with vulnerability reporting and security model
+- Graceful shutdown on SIGINT/SIGTERM
+- GitHub Actions CI with Node 18 + 20 matrix
+
+### Fixed
+- Rate limiter pause capped at 300s (prevents DoS via malicious Retry-After)
+- Validate create_api path in components handler (defense-in-depth)
+- Trim whitespace from name fields before validation
+- Package metadata: added author, engines, bugs, homepage fields
+
 ## [0.1.0] - 2026-03-16
 
 ### Added

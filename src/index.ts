@@ -40,7 +40,7 @@ const client = new TgcClient(config);
 
 const server = new McpServer({
   name: "The Game Crafter",
-  version: "0.1.0",
+  version: "0.1.1",
 });
 
 // Wrap handlers to convert TgcError → MCP error results

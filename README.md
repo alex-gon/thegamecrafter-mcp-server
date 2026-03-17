@@ -1,6 +1,6 @@
 # The Game Crafter MCP Server
 
-An MCP server that connects Claude to [The Game Crafter](https://www.thegamecrafter.com/) API, letting you design, manage, and price tabletop games through natural conversation.
+An MCP server that connects AI assistants to [The Game Crafter](https://www.thegamecrafter.com/) API, letting you design, manage, and price tabletop games through natural conversation.
 
 Browse the component catalog, create game projects, add card decks and boards, upload artwork, and get instant pricing estimates — all without leaving Claude.
 

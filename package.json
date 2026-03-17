@@ -1,7 +1,8 @@
 {
   "name": "@alex-gon/tgc-mcp-server",
-  "version": "0.1.0",
-  "description": "MCP server connecting Claude to The Game Crafter API for designing, managing, and pricing tabletop games",
+  "version": "0.1.1",
+  "mcpName": "io.github.alex-gon/thegamecrafter",
+  "description": "MCP server for The Game Crafter API — design, manage, and price tabletop games through AI",
   "main": "dist/index.js",
   "bin": {
     "tgc-mcp-server": "dist/index.js"

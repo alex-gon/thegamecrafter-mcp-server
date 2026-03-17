@@ -1,0 +1,54 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.alex-gon/thegamecrafter",
+  "description": "Design, manage, and price tabletop games on The Game Crafter via MCP.",
+  "title": "The Game Crafter",
+  "websiteUrl": "https://github.com/alex-gon/thegamecrafter-mcp-server",
+  "repository": {
+    "url": "https://github.com/alex-gon/thegamecrafter-mcp-server",
+    "source": "github"
+  },
+  "version": "0.1.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@alex-gon/tgc-mcp-server",
+      "version": "0.1.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "TGC_API_KEY_ID",
+          "description": "Your TGC API key ID from thegamecrafter.com/account/apikeys",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "TGC_USERNAME",
+          "description": "Your TGC account username",
+          "isRequired": true,
+          "isSecret": false
+        },
+        {
+          "name": "TGC_PASSWORD",
+          "description": "Your TGC account password",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "TGC_API_BASE",
+          "description": "Override the TGC API base URL",
+          "isRequired": false,
+          "default": "https://www.thegamecrafter.com/api"
+        },
+        {
+          "name": "TGC_UPLOAD_BASE_DIR",
+          "description": "Restrict file uploads to a specific directory",
+          "isRequired": false
+        }
+      ]
+    }
+  ]
+}
