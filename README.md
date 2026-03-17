@@ -19,7 +19,7 @@ Indie board game designers, tabletop creators, and TGC users who want to manage 
 1. Clone and build the server:
 
 ```bash
-git clone <repo-url> tgc-mcp-server
+git clone https://github.com/alex-gon/thegamecrafter-mcp-server.git tgc-mcp-server
 cd tgc-mcp-server
 npm install
 npm run build

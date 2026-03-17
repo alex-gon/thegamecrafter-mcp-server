@@ -174,6 +174,16 @@ async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
   console.error("TGC MCP Server running on stdio");
+
+  const shutdown = async () => {
+    if (client.session.isActive) {
+      await client.logout().catch(() => {});
+    }
+    process.exit(0);
+  };
+
+  process.on("SIGINT", shutdown);
+  process.on("SIGTERM", shutdown);
 }
 
 main().catch((error) => {

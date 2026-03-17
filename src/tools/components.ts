@@ -1,5 +1,6 @@
 import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import type { TgcClient } from "../client/tgc-client.js";
+import { TgcError } from "../types/errors.js";
 
 export function handleAddComponentToGame(client: TgcClient) {
   return async (args: {
@@ -15,6 +16,12 @@ export function handleAddComponentToGame(client: TgcClient) {
     if (catalogProduct && catalogProduct.create_api) {
       // Strip leading /api prefix — the client's base URL already includes it
       const apiPath = catalogProduct.create_api.replace(/^\/api/, "");
+      if (apiPath.includes("..") || apiPath.includes("//")) {
+        throw new TgcError(
+          `Invalid create_api path from catalog: "${catalogProduct.create_api}"`,
+          "validation",
+        );
+      }
       const component = await client.createPrintableComponent(
         apiPath,
         catalogProduct.identity,

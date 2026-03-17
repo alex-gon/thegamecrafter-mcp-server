@@ -18,7 +18,8 @@
     "start": "node dist/index.js",
     "dev": "tsx --env-file=.env src/index.ts",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run test && npm run build"
   },
   "keywords": [
     "mcp",
@@ -27,12 +28,19 @@
     "boardgames",
     "tabletop"
   ],
-  "author": "",
+  "author": "Alex Stevens <alex-gon@users.noreply.github.com> (https://github.com/alex-gon)",
   "license": "MIT",
   "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alex-gon/thegamecrafter-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alex-gon/thegamecrafter-mcp-server/issues"
+  },
+  "homepage": "https://github.com/alex-gon/thegamecrafter-mcp-server#readme",
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.27.1",

@@ -44,7 +44,7 @@ export const getGameDetailsInput = {
 
 // Tool 7: create_game — create a new game project
 export const createGameInput = {
-  name: z.string().min(1).max(255).describe("Name for the new game project (max 255 chars)."),
+  name: z.string().trim().min(1).max(255).describe("Name for the new game project (max 255 chars)."),
   designer_id: safeId.describe(
     "The designer ID to create the game under. Get this from the get_my_designers tool.",
   ),
@@ -70,6 +70,7 @@ export const addComponentToGameInput = {
     ),
   name: z
     .string()
+    .trim()
     .max(255)
     .optional()
     .describe("Optional display name for this component within the game (max 255 chars)."),
@@ -120,7 +121,7 @@ export const getPricingEstimateInput = {
 // Tool 12: update_game — update a game's metadata
 export const updateGameInput = {
   game_id: safeId.describe("The game ID to update."),
-  name: z.string().max(255).optional().describe("New name for the game (max 255 chars)."),
+  name: z.string().trim().max(255).optional().describe("New name for the game (max 255 chars)."),
   description: z
     .string()
     .max(5000)

@@ -114,6 +114,26 @@ describe("RateLimiter", () => {
     expect(resolved).toBe(false);
   });
 
+  it("drain() caps pause duration at 300 seconds", async () => {
+    const limiter = new RateLimiter({ maxTokens: 100, refillRatePerSecond: 4 });
+    const before = Date.now();
+    limiter.drain(999999); // would be 11+ days uncapped
+
+    let resolved = false;
+    const promise = limiter.acquire().then(() => {
+      resolved = true;
+    });
+
+    // After 299 seconds, still paused
+    await vi.advanceTimersByTimeAsync(299_000);
+    expect(resolved).toBe(false);
+
+    // After 301 seconds total, should have resumed (capped at 300)
+    await vi.advanceTimersByTimeAsync(2_000);
+    await promise;
+    expect(resolved).toBe(true);
+  });
+
   it("wait duration is 1/refillRate seconds when exhausted", async () => {
     const limiter = new RateLimiter({ maxTokens: 1, refillRatePerSecond: 2 });
     await limiter.acquire(); // exhaust

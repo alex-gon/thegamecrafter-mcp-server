@@ -3,6 +3,8 @@ export interface RateLimiterConfig {
   refillRatePerSecond: number;
 }
 
+const MAX_PAUSE_SECONDS = 300; // 5 minutes — cap against malicious Retry-After headers
+
 export class RateLimiter {
   private tokens: number;
   private lastRefill: number;
@@ -15,7 +17,8 @@ export class RateLimiter {
 
   drain(pauseSeconds: number): void {
     this.tokens = 0;
-    this.pauseUntil = Date.now() + pauseSeconds * 1000;
+    const capped = Math.min(pauseSeconds, MAX_PAUSE_SECONDS);
+    this.pauseUntil = Date.now() + capped * 1000;
   }
 
   async acquire(): Promise<void> {
