@@ -1,0 +1,17 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "maintainers": ["alex-gon"],
+  "name": "tgc-mcp-server",
+  "display_name": "The Game Crafter",
+  "description": "14 tools for The Game Crafter's print-on-demand platform. Browse component catalogs, create game projects, add card decks and boards, upload artwork, and get instant pricing estimates.",
+  "repository": "https://github.com/alex-gon/thegamecrafter-mcp-server",
+  "license": "MIT",
+  "runtime": "node",
+  "categories": ["gaming", "e-commerce"],
+  "keywords": ["mcp", "thegamecrafter", "boardgames", "tabletop", "print-on-demand", "gaming"],
+  "capabilities": {
+    "tools": true,
+    "prompts": true,
+    "resources": true
+  }
+}
