@@ -10,6 +10,8 @@ An MCP server that connects AI assistants to [The Game Crafter](https://www.theg
 
 Browse the component catalog, create game projects, add card decks and boards, upload artwork, and get instant pricing estimates — all through your AI assistant.
 
+[![The Game Crafter MCP server](https://glama.ai/mcp/servers/alex-gon/thegamecrafter-mcp-server/badges/card.svg)](https://glama.ai/mcp/servers/alex-gon/thegamecrafter-mcp-server)
+
 ## Who it's for
 
 Indie board game designers, tabletop creators, and TGC users who want to manage their projects through an AI assistant instead of navigating the TGC web interface manually.
