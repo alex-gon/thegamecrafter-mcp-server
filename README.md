@@ -4,6 +4,7 @@
 [![MCP Registry](https://img.shields.io/badge/MCP_Registry-active-green)](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.alex-gon/thegamecrafter)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![CI](https://github.com/alex-gon/thegamecrafter-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/alex-gon/thegamecrafter-mcp-server/actions)
+[![alex-gon/thegamecrafter-mcp-server MCP server](https://glama.ai/mcp/servers/alex-gon/thegamecrafter-mcp-server/badges/score.svg)](https://glama.ai/mcp/servers/alex-gon/thegamecrafter-mcp-server)
 
 An MCP server that connects AI assistants to [The Game Crafter](https://www.thegamecrafter.com/) API, letting you design, manage, and price tabletop games through natural conversation.
 
