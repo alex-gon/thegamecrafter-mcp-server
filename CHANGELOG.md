@@ -11,6 +11,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/):
 | New tools added | Minor | 0.1.0 → 0.2.0 |
 | Tools renamed or removed | Major | 0.1.0 → 1.0.0 |
 
+## [0.2.0] - 2026-04-01
+
+### Added
+- Remote authentication: `authenticate` tool now accepts optional `api_key_id`,
+  `username`, and `password` parameters for remote usage (e.g., via Apify)
+- Remote Streamable HTTP endpoint via Apify Actor at
+  `https://chillbot3000--tgc-mcp-server.apify.actor/mcp`
+- Listed on Glama Connectors for one-click remote access
+
+### Changed
+- Environment variables `TGC_API_KEY_ID`, `TGC_USERNAME`, `TGC_PASSWORD` are
+  now optional — credentials can be provided via tool parameters instead
+- Server starts without credentials (validation moved to authenticate-time)
+- Updated MCP Registry metadata with remote endpoint and v0.2.0
+
 ## [0.1.1] - 2026-03-17
 
 ### Added
