@@ -3,7 +3,7 @@
   "maintainers": ["alex-gon"],
   "name": "tgc-mcp-server",
   "display_name": "The Game Crafter",
-  "description": "14 tools for The Game Crafter's print-on-demand platform. Browse component catalogs, create game projects, add card decks and boards, upload artwork, and get instant pricing estimates.",
+  "description": "14 tools for The Game Crafter's print-on-demand platform. Browse component catalogs, create game projects, add card decks and boards, upload artwork, and get instant pricing estimates. Available locally via npx or remotely via hosted Apify endpoint.",
   "repository": "https://github.com/alex-gon/thegamecrafter-mcp-server",
   "license": "MIT",
   "runtime": "node",
@@ -13,5 +13,7 @@
     "tools": true,
     "prompts": true,
     "resources": true
-  }
+  },
+  "transport": ["stdio", "streamable-http"],
+  "remote_endpoint": "https://chillbot3000--tgc-mcp-server.apify.actor/mcp"
 }
