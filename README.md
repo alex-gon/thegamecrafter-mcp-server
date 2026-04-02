@@ -24,6 +24,20 @@ Indie board game designers, tabletop creators, and TGC users who want to manage 
 
 ## Installation
 
+### Option 1: Remote (hosted on Apify) — no install needed
+
+Connect to the hosted server at:
+
+```
+https://chillbot3000--tgc-mcp-server.apify.actor/mcp
+```
+
+No local setup required. Provide your TGC credentials when you call the `authenticate` tool. Usage is billed per operation via Apify's pay-per-event model (~$0.09 per typical session).
+
+Also available on [Glama Connectors](https://glama.ai/mcp/connectors).
+
+### Option 2: Local (via npx)
+
 Add the server to your Claude Desktop configuration (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
 
 ```json
@@ -74,7 +88,7 @@ See `.env.example` for a template.
 
 | Tool | Description | Auth |
 |------|-------------|------|
-| `authenticate` | Create a TGC session using stored credentials | No |
+| `authenticate` | Create a TGC session (accepts credentials as params or uses env vars) | No |
 | `logout` | Destroy the current TGC session | Yes |
 | `get_game_catalog` | Browse printable component types (cards, boards, boxes) | No |
 | `get_component_sizes` | Get pixel dimensions and finished inches for component types | No |
@@ -120,9 +134,9 @@ Try saying these to your AI assistant:
 ## Limitations
 
 - **Rate limits** — The server enforces 3 requests/second to TGC (below their 4/sec limit) with per-session budgets of 500 reads and 200 writes.
-- **Authentication** — Uses environment variable credentials only. OAuth 2.1 support is planned for a future release with HTTP transport.
+- **Authentication** — Credentials can be passed as `authenticate` tool parameters (required for remote usage) or via environment variables (for local stdio). OAuth 2.1 support is planned for a future release.
 - **File uploads** — Maximum 50 MB per file. Images must be between 50x50 and 10,000x10,000 pixels. Supported formats: PNG, JPG, GIF, BMP, TIFF, SVG, WebP, PDF.
-- **Transport** — Stdio only. HTTP/SSE transport planned for v2.
+- **Transport** — Stdio for local usage. Remote HTTP available via the [hosted Apify endpoint](https://chillbot3000--tgc-mcp-server.apify.actor/mcp).
 - **Read-only catalog** — The component catalog and pricing come from TGC and cannot be modified.
 
 ## Contributing
