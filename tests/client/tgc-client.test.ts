@@ -23,7 +23,7 @@ afterEach(() => {
 });
 
 describe("authenticate", () => {
-  it("POSTs to /session with credentials and stores session", async () => {
+  it("POSTs to /session with config credentials and stores session", async () => {
     mockFetch.mockResolvedValue(
       mockFetchResponse(200, { result: { id: "sess-1", user_id: "user-1" } }),
     );
@@ -48,6 +48,37 @@ describe("authenticate", () => {
     await client.authenticate();
     const url = mockFetch.mock.calls[0][0] as string;
     expect(url).not.toContain("session_id");
+  });
+
+  it("uses override credentials when all three provided", async () => {
+    mockFetch.mockResolvedValue(
+      mockFetchResponse(200, { result: { id: "sess-2", user_id: "user-2" } }),
+    );
+    const session = await client.authenticate({
+      apiKeyId: "override-key",
+      username: "override-user",
+      password: "override-pass",
+    });
+    expect(session.id).toBe("sess-2");
+    const body = JSON.parse((mockFetch.mock.calls[0][1] as RequestInit).body as string);
+    expect(body.api_key_id).toBe("override-key");
+    expect(body.username).toBe("override-user");
+    expect(body.password).toBe("override-pass");
+  });
+
+  it("throws when only partial overrides provided", async () => {
+    await expect(
+      client.authenticate({ apiKeyId: "key-only" }),
+    ).rejects.toThrow("Partial credentials");
+  });
+
+  it("throws when no config and no overrides", async () => {
+    const emptyClient = new TgcClient({
+      apiBase: "https://www.thegamecrafter.com/api",
+    });
+    await expect(emptyClient.authenticate()).rejects.toThrow(
+      "No TGC credentials available",
+    );
   });
 });
 

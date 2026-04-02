@@ -40,7 +40,7 @@ const client = new TgcClient(config);
 
 const server = new McpServer({
   name: "The Game Crafter",
-  version: "0.1.1",
+  version: "0.2.0",
 });
 
 // Wrap handlers to convert TgcError → MCP error results
@@ -75,7 +75,8 @@ server.registerTool("get_game_catalog", {
 
 server.registerTool("authenticate", {
   description:
-    "Create a TGC session using stored credentials. Must be called before any tool that requires authentication.",
+    "Create a TGC session. Provide your TGC credentials (api_key_id, username, password) to authenticate. All three are required for remote usage. Local users with environment variables configured can omit them.",
+  inputSchema: schemas.authenticateInput,
   annotations: { readOnlyHint: false },
 }, withErrorHandling(handleAuthenticate(client)));
 

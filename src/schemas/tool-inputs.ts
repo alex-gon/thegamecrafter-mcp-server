@@ -18,7 +18,28 @@ export const getGameCatalogInput = {
     ),
 };
 
-// Tool 2: authenticate — no LLM-supplied input (creds from env)
+// Tool 2: authenticate — optional credentials (override env vars for remote usage)
+export const authenticateInput = {
+  api_key_id: z
+    .string()
+    .optional()
+    .describe(
+      "TGC API key ID from thegamecrafter.com/account/apikeys. Required for remote usage.",
+    ),
+  username: z
+    .string()
+    .optional()
+    .describe(
+      "TGC account username. Required for remote usage.",
+    ),
+  password: z
+    .string()
+    .optional()
+    .describe(
+      "TGC account password. Required for remote usage.",
+    ),
+};
+
 // Tool 3: logout — no input (session managed internally)
 // Tool 4: get_my_designers — no input (uses current session)
 

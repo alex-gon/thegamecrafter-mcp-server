@@ -195,16 +195,45 @@ export class TgcClient {
 
   // --- Typed API methods ---
 
-  async authenticate(): Promise<TgcSession> {
+  async authenticate(overrides?: {
+    apiKeyId?: string;
+    username?: string;
+    password?: string;
+  }): Promise<TgcSession> {
+    let apiKeyId: string | undefined;
+    let username: string | undefined;
+    let password: string | undefined;
+
+    const hasAnyOverride =
+      overrides?.apiKeyId || overrides?.username || overrides?.password;
+
+    if (hasAnyOverride) {
+      if (!overrides?.apiKeyId || !overrides?.username || !overrides?.password) {
+        throw new TgcError(
+          "Partial credentials provided. You must provide all three: api_key_id, username, and password.",
+          "auth",
+        );
+      }
+      apiKeyId = overrides.apiKeyId;
+      username = overrides.username;
+      password = overrides.password;
+    } else {
+      apiKeyId = this.config.apiKeyId;
+      username = this.config.username;
+      password = this.config.password;
+      if (!apiKeyId || !username || !password) {
+        throw new TgcError(
+          "No TGC credentials available. Provide api_key_id, username, and password parameters, or set TGC_API_KEY_ID, TGC_USERNAME, and TGC_PASSWORD environment variables.",
+          "auth",
+        );
+      }
+    }
+
     const result = await this.request<{ result: TgcSession }>(
       "POST",
       "/session",
       {
-        body: {
-          api_key_id: this.config.apiKeyId,
-          username: this.config.username,
-          password: this.config.password,
-        },
+        body: { api_key_id: apiKeyId, username, password },
         requiresAuth: false,
       },
     );

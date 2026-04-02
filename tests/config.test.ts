@@ -32,18 +32,21 @@ describe("loadConfig", () => {
     expect(config.apiBase).toBe("https://custom.api.com");
   });
 
-  it("throws when TGC_API_KEY_ID is missing", () => {
+  it("returns undefined apiKeyId when TGC_API_KEY_ID is missing", () => {
     delete process.env.TGC_API_KEY_ID;
-    expect(() => loadConfig()).toThrow("TGC_API_KEY_ID");
+    const config = loadConfig();
+    expect(config.apiKeyId).toBeUndefined();
   });
 
-  it("throws when TGC_USERNAME is missing", () => {
+  it("returns undefined username when TGC_USERNAME is missing", () => {
     delete process.env.TGC_USERNAME;
-    expect(() => loadConfig()).toThrow("TGC_USERNAME");
+    const config = loadConfig();
+    expect(config.username).toBeUndefined();
   });
 
-  it("throws when TGC_PASSWORD is missing", () => {
+  it("returns undefined password when TGC_PASSWORD is missing", () => {
     delete process.env.TGC_PASSWORD;
-    expect(() => loadConfig()).toThrow("TGC_PASSWORD");
+    const config = loadConfig();
+    expect(config.password).toBeUndefined();
   });
 });
